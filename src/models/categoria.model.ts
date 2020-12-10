@@ -1,7 +1,7 @@
 import {Entity, model, property} from '@loopback/repository';
 
-@model({settings: {idInjection: false, mssql: {schema: 'dbo', table: 'Cliente'}}})
-export class Cliente extends Entity {
+@model({settings: {idInjection: false, mssql: {schema: 'dbo', table: 'Categoria'}}})
+export class Categoria extends Entity {
   @property({
     type: 'number',
     required: true,
@@ -19,26 +19,19 @@ export class Cliente extends Entity {
   })
   nombre?: string;
 
-  @property({
-    type: 'number',
-    precision: 53,
-    mssql: {columnName: 'limiteCredito', dataType: 'float', dataLength: null, dataPrecision: 53, dataScale: null, nullable: 'YES'},
-  })
-  limiteCredito?: number;
-
   // Define well-known properties here
 
   // Indexer property to allow additional data
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [prop: string]: any;
 
-  constructor(data?: Partial<Cliente>) {
+  constructor(data?: Partial<Categoria>) {
     super(data);
   }
 }
 
-export interface ClienteRelations {
+export interface CategoriaRelations {
   // describe navigational properties here
 }
 
-export type ClienteWithRelations = Cliente & ClienteRelations;
+export type CategoriaWithRelations = Categoria & CategoriaRelations;
